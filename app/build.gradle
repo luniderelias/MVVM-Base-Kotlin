@@ -5,14 +5,14 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion tools.compileSdkVersion
     buildToolsVersion "29.0.2"
     defaultConfig {
-        applicationId "com.example.mvvm_base_kotlin"
-        minSdkVersion 15
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        applicationId tools.applicationId
+        minSdkVersion tools.minSdkVersion
+        targetSdkVersion tools.targetSdkVersion
+        versionCode tools.versionCode
+        versionName tools.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -24,12 +24,25 @@ android {
 }
 
 dependencies {
+    def v = rootProject.ext.versions
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core-ktx:1.0.2'
+    implementation 'androidx.core:core-ktx:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$v.kotlin"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$v.coroutines"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$v.coroutines"
+    implementation "org.koin:koin-android:$v.koin"
+
+    // region UI
+    implementation "androidx.appcompat:appcompat:$v.androidx"
+    implementation "androidx.recyclerview:recyclerview:$v.androidx_recycler_view"
+    implementation "androidx.fragment:fragment:$v.androidx_fragment"
+    implementation "androidx.constraintlayout:constraintlayout:$v.constraint_layout"
+
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }

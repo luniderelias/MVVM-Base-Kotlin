@@ -5,10 +5,10 @@ ext {
             koin : '1.0.2',
 
             // region UI
-            androidx : '1.1.0-rc01',
-            androidx_recycler_view : '1.1.0-beta01',
-            androidx_fragment : '1.2.0-alpha01',
-            constraint_layout : '2.0.0-beta2',
+            androidx : '1.2.0-alpha02',
+            androidx_recycler_view : '1.2.0-alpha01',
+            androidx_fragment : '1.2.1',
+            constraint_layout : '2.0.0-beta4',
             android_material : '1.1.0-alpha09',
             glide : '4.9.0',
 
