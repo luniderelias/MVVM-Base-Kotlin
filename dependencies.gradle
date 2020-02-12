@@ -2,7 +2,7 @@ ext {
     versions = [
             // region Kotlin
             coroutines : '1.1.0',
-            koin : '1.0.2',
+            koin : '1.0.1',
 
             // region UI
             androidx : '1.2.0-alpha02',
