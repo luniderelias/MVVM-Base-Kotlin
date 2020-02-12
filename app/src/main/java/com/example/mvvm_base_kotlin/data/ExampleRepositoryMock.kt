@@ -1,14 +1,18 @@
 package com.example.mvvm_base_kotlin.data
 
-import com.example.mvvm_base_kotlin.R
+import androidx.lifecycle.MutableLiveData
 
-class ExampleRepositoryMock: ExampleRepository {
 
-    override fun getExample(success: (ExampleData) -> Unit, failure: (ExampleData) -> Unit) {
-        if(Math.random() > 0.5)
-            success(ExampleData(messageResId = R.string.hello_world))
+class ExampleRepositoryMock : ExampleRepository {
+
+    private var flag = false
+
+    override fun getExample(): MutableLiveData<ExampleData> {
+        flag = !flag
+        return if (flag)
+            MutableLiveData(ExampleData(message = "Hello World!"))
         else
-            failure(ExampleData(messageResId = R.string.hello_world_failed))
+            MutableLiveData(ExampleData(message = "Sorry, we could not find your message"))
     }
 
 }
