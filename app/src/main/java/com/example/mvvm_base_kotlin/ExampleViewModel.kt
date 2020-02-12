@@ -21,12 +21,12 @@ class ExampleViewModel(
     fun load() {
         handleTextVisibility(false)
         repository.getExample(
-            { success: Int ->
-                message.postValue(getApplication<App>().getString(success))
+            { success ->
+                message.postValue(getApplication<App>().getString(success.messageResId))
                 handleTextVisibility(true)
             },
             { failure ->
-                message.postValue(getApplication<App>().getString(failure))
+                message.postValue(getApplication<App>().getString(failure.messageResId))
                 handleTextVisibility(true)
             })
     }

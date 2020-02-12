@@ -4,11 +4,11 @@ import com.example.mvvm_base_kotlin.R
 
 class ExampleRepositoryMock: ExampleRepository {
 
-    override fun getExample(success: (Int) -> Unit, failure: (Int) -> Unit) {
+    override fun getExample(success: (ExampleData) -> Unit, failure: (ExampleData) -> Unit) {
         if(Math.random() > 0.5)
-            success(R.string.hello_world)
+            success(ExampleData(messageResId = R.string.hello_world))
         else
-            failure(R.string.hello_world_failed)
+            failure(ExampleData(messageResId = R.string.hello_world_failed))
     }
 
 }
